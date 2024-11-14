@@ -9,6 +9,7 @@ const gameBoard = (function () {
             board[i].push(Cell());
         }
     }
+    
     return {
         board: board
      };
@@ -20,4 +21,6 @@ function Cell() {
     return value;
 }
 
+console.log(gameBoard.board);
+gameBoard.board[1][0] = 1;
 console.log(gameBoard.board);
