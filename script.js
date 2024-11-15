@@ -6,8 +6,14 @@ const gameBoard = (function () {
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for (let j = 0; j < columns; j++) {
-            board[i].push(Cell());
+            board[i].push(_Cell());
         }
+    }
+
+    function _Cell() {
+        let value = 0;
+
+        return value;
     }
     
     return {
@@ -15,11 +21,7 @@ const gameBoard = (function () {
      };
 })();
 
-function Cell() {
-    let value = 0;
 
-    return value;
-}
 
 console.log(gameBoard.board);
 gameBoard.board[1][0] = 1;
