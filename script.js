@@ -28,10 +28,20 @@ const gameBoard = (function () {
 
 gameBoard.render();
 
-// const gameFlow = (function () {
-//     let currentPlayer = 0;
+const gameFlow = (function () {
+    let currentPlayer = 'X';
+    function userInput(){
+        let rowIndex = prompt("Enter row:");
+        let columnIndex = prompt("Enter column:");
 
-//     return {
-//         playerTracker
-//     }
-// })();
+        if (currentPlayer = 'X'){
+            console.log(`[${rowIndex}][${columnIndex}] = X`);
+        }
+    }
+    return {
+        playerTracker: currentPlayer,
+        userInput
+    }
+})();
+
+gameFlow.userInput();
