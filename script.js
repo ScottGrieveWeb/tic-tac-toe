@@ -15,14 +15,23 @@ const gameBoard = (function () {
 
         return value;
     }
+
+    function render() {
+        console.log(board);
+    }
     
     return {
-        board: board
+        render
      };
 })();
 
 
+gameBoard.render();
 
-console.log(gameBoard.board);
-gameBoard.board[1][0] = 1;
-console.log(gameBoard.board);
+// const gameFlow = (function () {
+//     let currentPlayer = 0;
+
+//     return {
+//         playerTracker
+//     }
+// })();
