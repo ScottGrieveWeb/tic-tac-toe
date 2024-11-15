@@ -21,22 +21,27 @@ const gameBoard = (function () {
     }
     
     return {
+        board,
         render
      };
 })();
 
-
-gameBoard.render();
-
 const gameFlow = (function () {
     let currentPlayer = 'X';
     function userInput(){
+        gameBoard.render();
+        
         let rowIndex = prompt("Enter row:");
         let columnIndex = prompt("Enter column:");
+        rowIndex = parseInt(rowIndex);
+        columnIndex = parseInt(columnIndex);
 
-        if (currentPlayer = 'X'){
-            console.log(`[${rowIndex}][${columnIndex}] = X`);
-        }
+        updateBoard(rowIndex, columnIndex);
+    }
+
+    function updateBoard(row, column){
+        gameBoard.board[row][column] = 'X';
+        gameBoard.render();
     }
     return {
         playerTracker: currentPlayer,
