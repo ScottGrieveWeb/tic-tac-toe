@@ -84,6 +84,8 @@ const gameFlow = (function () {
             alert(`Player X wins!`);
         } else if (diagnolChecker() == 'O'){
             alert(`Player O wins!`);
+        } else if (drawChecker() == false){
+            alert(`It's a draw!`);
         }
     }
 
@@ -131,6 +133,16 @@ const gameFlow = (function () {
         } 
     }
 
+    function drawChecker(){
+        for (let i = 0; i < gameBoard.board.length; i++) {
+            for (let j = 0; j < gameBoard.board[i].length; j++) {
+              if (gameBoard.board[i][j] === '') {
+                return true;
+              }
+            }
+          }
+          return false;
+    }
     function updateBoard(row, column, marker){
         gameBoard.board[row][column] = marker;
         gameBoard.render();
@@ -139,7 +151,6 @@ const gameFlow = (function () {
     return {
         currentPlayer,
         userInput
-
     }
 })();
 
