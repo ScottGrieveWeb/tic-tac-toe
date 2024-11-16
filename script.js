@@ -80,6 +80,10 @@ const gameFlow = (function () {
             alert(`Player X wins!`);
         } else if (columnChecker() == 'O'){
             alert(`Player O wins!`);
+        } else if (diagnolChecker() == 'X'){
+            alert(`Player X wins!`);
+        } else if (diagnolChecker() == 'O'){
+            alert(`Player O wins!`);
         }
     }
 
@@ -113,6 +117,18 @@ const gameFlow = (function () {
         } else if (gameBoard.board[0][2] == 'O' && gameBoard.board[1][2] == 'O' && gameBoard.board[2][2] == 'O'){
             return 'O';
         }
+    }
+
+    function diagnolChecker(){
+        if (gameBoard.board[0][0] == 'X' && gameBoard.board[1][1] == 'X' && gameBoard.board[2][2] == 'X'){
+            return 'X';
+        } else if (gameBoard.board[2][0] == 'X' && gameBoard.board[1][1] == 'X' && gameBoard.board[0][2] == 'X'){
+            return 'X';
+        } else if (gameBoard.board[0][0] == 'O' && gameBoard.board[1][1] == 'O' && gameBoard.board[2][2] == 'O'){
+            return 'O';
+        } else if (gameBoard.board[2][0] == 'O' && gameBoard.board[1][1] == 'O' && gameBoard.board[0][2] == 'O'){
+            return 'O';
+        } 
     }
 
     function updateBoard(row, column, marker){
