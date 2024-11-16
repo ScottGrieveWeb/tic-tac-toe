@@ -37,25 +37,14 @@ const gameFlow = (function () {
             rowIndex = parseInt(rowIndex);
             columnIndex = parseInt(columnIndex);
             
-            console.log(availableChecker(rowIndex, columnIndex));
             if (availableChecker(rowIndex, columnIndex) == true){
                 alert("available");
+                updateBoard(rowIndex, columnIndex, 'X');
+                currentPlayer = 'O';
             } else {
-                alert("taken");
+                alert("taken, try again");
+                userInput();
             }
-            updateBoard(rowIndex, columnIndex, 'X');
-            currentPlayer = 'O';
-            // if (gameBoard.board[row][column] == ''){
-            //     updateBoard(rowIndex, columnIndex, 'X');
-            //     currentPlayer = 'O';
-            // } else {
-            //     alert("That's already taken!");
-            //     rowIndex = prompt("Player X, enter a row:");
-            //     columnIndex = prompt("Player X, enter a column:");
-            //     rowIndex = parseInt(rowIndex);
-            //     columnIndex = parseInt(columnIndex);
-            // }
-
             
         } else {
             rowIndex = prompt("Player O, enter a row:");
@@ -63,17 +52,15 @@ const gameFlow = (function () {
             rowIndex = parseInt(rowIndex);
             columnIndex = parseInt(columnIndex);
 
-            console.log(availableChecker(rowIndex, columnIndex));
             if (availableChecker(rowIndex, columnIndex) == true){
                 alert("available");
+                updateBoard(rowIndex, columnIndex, 'O');
+                currentPlayer = 'X';
             } else {
-                alert("taken");
+                alert("taken, try again");
+                userInput();
             }
-
-            updateBoard(rowIndex, columnIndex, 'O');
-            currentPlayer = 'X';
         }
-
     }
 
     function availableChecker(row, column) {
