@@ -76,6 +76,10 @@ const gameFlow = (function () {
             alert(`Player X wins!`);
         } else if (rowChecker() == 'O'){
             alert(`Player O wins!`);
+        } else if (columnChecker() == 'X'){
+            alert(`Player X wins!`);
+        } else if (columnChecker() == 'O'){
+            alert(`Player O wins!`);
         }
     }
 
@@ -91,6 +95,22 @@ const gameFlow = (function () {
         } else if (gameBoard.board[1][0] == 'O' && gameBoard.board[1][1] == 'O' && gameBoard.board[1][2] == 'O'){
             return 'O';
         } else if (gameBoard.board[2][0] == 'O' && gameBoard.board[2][1] == 'O' && gameBoard.board[2][2] == 'O'){
+            return 'O';
+        }
+    }
+
+    function columnChecker(){
+        if (gameBoard.board[0][0] == 'X' && gameBoard.board[1][0] == 'X' && gameBoard.board[2][0] == 'X'){
+            return 'X';
+        } else if (gameBoard.board[0][1] == 'X' && gameBoard.board[1][1] == 'X' && gameBoard.board[2][1] == 'X'){
+            return 'X';
+        } else if (gameBoard.board[0][2] == 'X' && gameBoard.board[1][2] == 'X' && gameBoard.board[2][2] == 'X'){
+            return 'X';
+        } else if (gameBoard.board[0][0] == 'O' && gameBoard.board[2][0] == 'O' && gameBoard.board[2][0] == 'O'){
+            return 'O';
+        } else if (gameBoard.board[0][1] == 'O' && gameBoard.board[1][1] == 'O' && gameBoard.board[2][1] == 'O'){
+            return 'O';
+        } else if (gameBoard.board[0][2] == 'O' && gameBoard.board[1][2] == 'O' && gameBoard.board[2][2] == 'O'){
             return 'O';
         }
     }
