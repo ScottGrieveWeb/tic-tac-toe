@@ -11,7 +11,7 @@ const gameBoard = (function () {
     }
 
     function _Cell() {
-        let value = '-';
+        let value = '';
 
         return value;
     }
@@ -36,25 +36,52 @@ const gameFlow = (function () {
             columnIndex = prompt("Player X, enter a column:");
             rowIndex = parseInt(rowIndex);
             columnIndex = parseInt(columnIndex);
-
+            
+            console.log(availableChecker(rowIndex, columnIndex));
+            if (availableChecker(rowIndex, columnIndex) == true){
+                alert("available");
+            } else {
+                alert("taken");
+            }
             updateBoard(rowIndex, columnIndex, 'X');
             currentPlayer = 'O';
+            // if (gameBoard.board[row][column] == ''){
+            //     updateBoard(rowIndex, columnIndex, 'X');
+            //     currentPlayer = 'O';
+            // } else {
+            //     alert("That's already taken!");
+            //     rowIndex = prompt("Player X, enter a row:");
+            //     columnIndex = prompt("Player X, enter a column:");
+            //     rowIndex = parseInt(rowIndex);
+            //     columnIndex = parseInt(columnIndex);
+            // }
+
+            
         } else {
             rowIndex = prompt("Player O, enter a row:");
             columnIndex = prompt("Player O, enter a column:");
             rowIndex = parseInt(rowIndex);
             columnIndex = parseInt(columnIndex);
 
+            console.log(availableChecker(rowIndex, columnIndex));
+            if (availableChecker(rowIndex, columnIndex) == true){
+                alert("available");
+            } else {
+                alert("taken");
+            }
+
             updateBoard(rowIndex, columnIndex, 'O');
             currentPlayer = 'X';
         }
 
-        // let rowIndex = prompt("Enter row:");
-        // let columnIndex = prompt("Enter column:");
-        // rowIndex = parseInt(rowIndex);
-        // columnIndex = parseInt(columnIndex);
+    }
 
-        // updateBoard(rowIndex, columnIndex);
+    function availableChecker(row, column) {
+        if (gameBoard.board[row][column] == ''){
+            return true;
+        } else if (gameBoard.board[row][column] == 'X' || 'O'){
+            return false;
+        }
     }
 
     function updateBoard(row, column, marker){
@@ -65,10 +92,11 @@ const gameFlow = (function () {
     return {
         currentPlayer,
         userInput
+
     }
 })();
 
 gameBoard.render();
 
-gameFlow.userInput();
-gameFlow.userInput();
+
+
