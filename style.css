@@ -1,0 +1,15 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c3327;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#game-container {
+    background-color: #c7ddd1;
+    color: #181F1C;
+}
