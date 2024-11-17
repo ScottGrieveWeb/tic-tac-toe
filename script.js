@@ -38,7 +38,6 @@ const gameFlow = (function () {
             columnIndex = parseInt(columnIndex);
             
             if (availableChecker(rowIndex, columnIndex) == true){
-                alert("available");
                 updateBoard(rowIndex, columnIndex, 'X');
                 currentPlayer = 'O';
             } else {
@@ -53,7 +52,6 @@ const gameFlow = (function () {
             columnIndex = parseInt(columnIndex);
 
             if (availableChecker(rowIndex, columnIndex) == true){
-                alert("available");
                 updateBoard(rowIndex, columnIndex, 'O');
                 currentPlayer = 'X';
             } else {
