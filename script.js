@@ -1,3 +1,18 @@
+const domManipulation = (function () {
+    // game board
+    const gameDiv = document.getElementById("game-container");
+    const squareWrapper = document.createElement("div");
+    squareWrapper.classList.add("wrapper");
+    let squareTxt = document.createTextNode('');
+    squareWrapper.appendChild(squareTxt);
+   
+    return {
+        squareWrapper,
+        gameDiv
+    }
+
+})();
+
 const gameBoard = (function () {
     const rows = 3;
     const columns = 3;
@@ -12,7 +27,7 @@ const gameBoard = (function () {
 
     function _Cell() {
         let value = '';
-
+        // let value = domManipulation.squareWrapper;
         return value;
     }
 
@@ -153,6 +168,5 @@ const gameFlow = (function () {
 })();
 
 gameBoard.render();
-
 
 
