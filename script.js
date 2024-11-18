@@ -1,33 +1,43 @@
 const domManipulation = (function () {
     // game board
     const gameDiv = document.getElementById("game-container");
-    const squareWrapper = document.createElement("div");
-    squareWrapper.classList.add("wrapper");
-    let squareTxt = document.createTextNode('');
-    squareWrapper.appendChild(squareTxt);
-   
+
+    // const squareWrapper = document.createElement("div");
+    // squareWrapper.classList.add("wrapper");
+    // let squareTxt = document.createTextNode('');
+    // squareWrapper.appendChild(squareTxt);
+
+    function fileCreate() {
+        console.log("test");
+    }
+
     return {
-        squareWrapper,
-        gameDiv
+        gameDiv,
+        fileCreate
     }
 
 })();
+
+
 
 const gameBoard = (function () {
     const rows = 3;
     const columns = 3;
     const board = [];
+    const div = domManipulation.gameDiv;
+    
 
     for (let i = 0; i < rows; i++) {
         board[i] = [];
+        let tr = document.createElement("tr");
         for (let j = 0; j < columns; j++) {
             board[i].push(_Cell());
         }
     }
 
+
     function _Cell() {
         let value = '';
-        // let value = domManipulation.squareWrapper;
         return value;
     }
 

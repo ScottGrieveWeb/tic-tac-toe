@@ -12,4 +12,15 @@ body {
 #game-container {
     background-color: #c7ddd1;
     color: #181F1C;
+    display: flex;
+    height: 300px;
+    width: 300px;
+}
+
+.wrapper {
+    background-color: #c7ddd1;
+    border: solid black;
+    min-height: auto;
+    height: 100px;
+    width: 100px;
 }
