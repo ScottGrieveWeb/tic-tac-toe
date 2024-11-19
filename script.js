@@ -1,24 +1,10 @@
-const domManipulation = (function () {
-
-
-    return {
-
-    }
-
-})();
-
-
-
 const gameBoard = (function () {
     const rows = 3;
     const columns = 3;
     const board = [];
-    const div = domManipulation.gameDiv;
-    
 
     for (let i = 0; i < rows; i++) {
         board[i] = [];
-        let tr = document.createElement("tr");
         for (let j = 0; j < columns; j++) {
             board[i].push(_Cell());
         }
@@ -168,4 +154,21 @@ const gameFlow = (function () {
 
 gameBoard.render();
 
+const domManipulation = (function () {
+    
 
+    for (let i = 1; i < 10; i++) {
+        const file = document.getElementById(i);
+
+        file.addEventListener("click", gameFlow.userInput);
+    }
+    
+        return {
+    
+        }
+    
+    })();
+
+    
+    
+    
