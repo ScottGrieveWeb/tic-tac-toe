@@ -15,9 +15,12 @@ body {
     display: flex;
     height: 300px;
     width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.wrapper {
+.file {
     background-color: #c7ddd1;
     border: solid black;
     min-height: auto;

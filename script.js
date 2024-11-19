@@ -1,19 +1,8 @@
 const domManipulation = (function () {
-    // game board
-    const gameDiv = document.getElementById("game-container");
 
-    // const squareWrapper = document.createElement("div");
-    // squareWrapper.classList.add("wrapper");
-    // let squareTxt = document.createTextNode('');
-    // squareWrapper.appendChild(squareTxt);
-
-    function fileCreate() {
-        console.log("test");
-    }
 
     return {
-        gameDiv,
-        fileCreate
+
     }
 
 })();
