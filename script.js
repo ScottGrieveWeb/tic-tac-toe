@@ -162,9 +162,15 @@ const domManipulation = (function () {
 
         file.addEventListener("click", gameFlow.userInput);
     }
+
+    function addMarker(player, index){
+        const currentFile = document.getElementById(index);
+        let node = document.createTextNode(`${player}`);
+        currentFile.appendChild(node);
+    }
     
         return {
-    
+            addMarker
         }
     
     })();
