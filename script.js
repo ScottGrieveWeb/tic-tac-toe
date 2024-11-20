@@ -169,8 +169,41 @@ const domManipulation = (function () {
         currentFile.appendChild(node);
     }
     
+    function idChecker(row, column) {
+        let index = `${row}` + `${column}`;
+        switch (index) {
+            case "00":
+                return 1;
+                break;
+            case "01":
+                return 2;
+                break;
+            case "02":
+                return 3;
+                break;
+            case "10":
+                return 4;
+                break;
+            case "11":
+                return 5;
+                break;
+            case "12":
+                return 6
+                break;
+            case "20":
+                return 7;
+                break;
+            case "21":
+                return 8;
+                break;
+            case "22":
+                return 9;
+                break;
+        }
+    }
         return {
-            addMarker
+            addMarker,
+            idChecker
         }
     
     })();
