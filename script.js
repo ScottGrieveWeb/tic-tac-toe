@@ -30,13 +30,14 @@ const gameFlow = (function () {
     let currentPlayer = 'X';
     let rowIndex;
     let columnIndex;
-    function userInput(){
+    function userInput(id){
+        let index = idChecker(id);
+        rowIndex = index[0];
+        columnIndex = index[1];
+
+        console.log(rowIndex);
+        console.log(columnIndex);
         if (currentPlayer == 'X'){
-            rowIndex = prompt("Player X, enter a row:");
-            columnIndex = prompt("Player X, enter a column:");
-            rowIndex = parseInt(rowIndex);
-            columnIndex = parseInt(columnIndex);
-            
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'X');
                 currentPlayer = 'O';
@@ -46,11 +47,6 @@ const gameFlow = (function () {
             }
             
         } else {
-            rowIndex = prompt("Player O, enter a row:");
-            columnIndex = prompt("Player O, enter a column:");
-            rowIndex = parseInt(rowIndex);
-            columnIndex = parseInt(columnIndex);
-
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'O');
                 currentPlayer = 'X';
@@ -146,21 +142,15 @@ const gameFlow = (function () {
         gameBoard.render();
         winCondition();
     }
-    return {
-        currentPlayer,
-        userInput
-    }
-})();
 
-gameBoard.render();
-
-const domManipulation = (function () {
-    
 
     for (let i = 1; i < 10; i++) {
         const file = document.getElementById(i);
 
-        file.addEventListener("click", gameFlow.userInput);
+        file.addEventListener("click", () => {
+
+            userInput(i);
+        });
     }
 
     function addMarker(player, index){
@@ -169,38 +159,6 @@ const domManipulation = (function () {
         currentFile.appendChild(node);
     }
     
-    // function idChecker(row, column) {
-    //     let index = `${row}` + `${column}`;
-    //     switch (index) {
-    //         case "00":
-    //             return 1;
-    //             break;
-    //         case "01":
-    //             return 2;
-    //             break;
-    //         case "02":
-    //             return 3;
-    //             break;
-    //         case "10":
-    //             return 4;
-    //             break;
-    //         case "11":
-    //             return 5;
-    //             break;
-    //         case "12":
-    //             return 6
-    //             break;
-    //         case "20":
-    //             return 7;
-    //             break;
-    //         case "21":
-    //             return 8;
-    //             break;
-    //         case "22":
-    //             return 9;
-    //             break;
-    //     }
-    // }
     function idChecker(id) {
         let row;
         let column;
@@ -246,12 +204,84 @@ const domManipulation = (function () {
 
         return index;
     }
-        return {
-            addMarker,
-            idChecker
-        }
+
+
+    return {
+        currentPlayer,
+        userInput
+    }
+})();
+
+gameBoard.render();
+
+// const domManipulation = (function () {
+
+//     for (let i = 1; i < 10; i++) {
+//         const file = document.getElementById(i);
+
+//         file.addEventListener("click", () => {
+
+//             test(i);
+//         });
+//     }
+
+//     function addMarker(player, index){
+//         const currentFile = document.getElementById(index);
+//         let node = document.createTextNode(`${player}`);
+//         currentFile.appendChild(node);
+//     }
     
-    })();
+//     function idChecker(id) {
+//         let row;
+//         let column;
+//         switch (id) {
+//             case 1:
+//                 row = 0;
+//                 column = 0;
+//                 break;
+//             case 2:
+//                 row = 0;
+//                 column = 1;
+//                 break;
+//             case 3:
+//                 row = 0;
+//                 column = 2;
+//                 break;
+//             case 4:
+//                 row = 1;
+//                 column = 0;
+//                 break;
+//             case 5:
+//                 row = 1;
+//                 column = 1;
+//                 break;
+//             case 6:
+//                 row = 1;
+//                 column = 2;
+//                 break;
+//             case 7:
+//                 row = 2;
+//                 column = 0;
+//                 break;
+//             case 8:
+//                 row = 2;
+//                 column = 1;
+//                 break;
+//             case 9:
+//                 row = 2;
+//                 column = 2;
+//                 break;
+//         }
+//         let index = [row, column];
+
+//         return index;
+//     }
+//         return {
+//             addMarker,
+//             idChecker
+//         }
+    
+//     })();
 
     
     
