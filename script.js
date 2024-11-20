@@ -169,37 +169,82 @@ const domManipulation = (function () {
         currentFile.appendChild(node);
     }
     
-    function idChecker(row, column) {
-        let index = `${row}` + `${column}`;
-        switch (index) {
-            case "00":
-                return 1;
+    // function idChecker(row, column) {
+    //     let index = `${row}` + `${column}`;
+    //     switch (index) {
+    //         case "00":
+    //             return 1;
+    //             break;
+    //         case "01":
+    //             return 2;
+    //             break;
+    //         case "02":
+    //             return 3;
+    //             break;
+    //         case "10":
+    //             return 4;
+    //             break;
+    //         case "11":
+    //             return 5;
+    //             break;
+    //         case "12":
+    //             return 6
+    //             break;
+    //         case "20":
+    //             return 7;
+    //             break;
+    //         case "21":
+    //             return 8;
+    //             break;
+    //         case "22":
+    //             return 9;
+    //             break;
+    //     }
+    // }
+    function idChecker(id) {
+        let row;
+        let column;
+        switch (id) {
+            case 1:
+                row = 0;
+                column = 0;
                 break;
-            case "01":
-                return 2;
+            case 2:
+                row = 0;
+                column = 1;
                 break;
-            case "02":
-                return 3;
+            case 3:
+                row = 0;
+                column = 2;
                 break;
-            case "10":
-                return 4;
+            case 4:
+                row = 1;
+                column = 0;
                 break;
-            case "11":
-                return 5;
+            case 5:
+                row = 1;
+                column = 1;
                 break;
-            case "12":
-                return 6
+            case 6:
+                row = 1;
+                column = 2;
                 break;
-            case "20":
-                return 7;
+            case 7:
+                row = 2;
+                column = 0;
                 break;
-            case "21":
-                return 8;
+            case 8:
+                row = 2;
+                column = 1;
                 break;
-            case "22":
-                return 9;
+            case 9:
+                row = 2;
+                column = 2;
                 break;
         }
+        let index = [row, column];
+
+        return index;
     }
         return {
             addMarker,
