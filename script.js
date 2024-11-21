@@ -35,11 +35,10 @@ const gameFlow = (function () {
         rowIndex = index[0];
         columnIndex = index[1];
 
-        console.log(rowIndex);
-        console.log(columnIndex);
         if (currentPlayer == 'X'){
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'X');
+                addMarker('X', id);
                 currentPlayer = 'O';
             } else {
                 alert("taken, try again");
@@ -49,6 +48,7 @@ const gameFlow = (function () {
         } else {
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'O');
+                addMarker('O', id);
                 currentPlayer = 'X';
             } else {
                 alert("taken, try again");
@@ -153,8 +153,8 @@ const gameFlow = (function () {
         });
     }
 
-    function addMarker(player, index){
-        const currentFile = document.getElementById(index);
+    function addMarker(player, id){
+        const currentFile = document.getElementById(id);
         let node = document.createTextNode(`${player}`);
         currentFile.appendChild(node);
     }
