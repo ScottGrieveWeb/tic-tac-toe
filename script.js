@@ -205,6 +205,15 @@ const gameFlow = (function () {
         return index;
     }
 
+    const startBtn = document.getElementById('start-btn');
+    const boardDialog = document.getElementById('gameDialog');
+    const gameDiv = document.getElementById('game-container');
+    gameDiv.style.visibility = "hidden";
+
+    startBtn.addEventListener("click", () => {
+        gameDiv.style.visibility = "visible";
+
+    });
 
     return {
         currentPlayer,
@@ -212,6 +221,5 @@ const gameFlow = (function () {
     }
 })();
 
-gameBoard.render();
 
     

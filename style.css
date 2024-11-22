@@ -6,7 +6,7 @@ body {
     align-items: center;
     background-color: #1c3327;
     font-family: 'Roboto', sans-serif;
-    
+    gap: 50px;
 }
 
 #game-container {
@@ -18,6 +18,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
+    padding: none;
 }
 
 .file {
@@ -30,4 +31,23 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 80px;
+}
+
+button {
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+#start-btn {
+    background-color: #c7ddd1;
+    font-size: 50px;
+    color: #181F1C;
+    padding: 20px 30px;
+    margin: 15px;
+    border-radius: 5px;
 }
