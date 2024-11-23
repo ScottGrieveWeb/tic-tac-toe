@@ -56,3 +56,8 @@ button {
     display: flex;
     flex-direction: column
 }
+
+#score {
+    color:#c7ddd1;
+    font-size: 45px;
+}
