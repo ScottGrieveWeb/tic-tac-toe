@@ -217,20 +217,25 @@ const gameFlow = (function () {
     const submitX = document.getElementById('submit-x');
     const playerODialog = document.getElementById('player-o');
     const submitO = document.getElementById('submit-o');
+
+    const playerXDiv = document.getElementById('player-x-score');
+    const playerODiv = document.getElementById('player-o-score');
    
     startBtn.addEventListener("click", () => {
-        // gameDiv.style.visibility = "visible";
-        // startBtn.style.visibility = "hidden";
-        // resetBtn.style.visibility = "visible";
         playerXDialog.showModal();
     });
 
     submitX.addEventListener("click", () => {
         const playerXName = document.getElementById("playerX");
+        let inputX = playerXName.value;
+        let scoreDisplayX = document.createElement("h3");
+
         if (playerXName.value == ''){
-            console.log("X");
+            scoreDisplayX.innerHTML = `Player X`;
+            playerXDiv.appendChild(scoreDisplayX);
         } else {
-            console.log(playerXName.value);
+            scoreDisplayX.innerHTML = `${inputX} (Player X)`;
+            playerXDiv.appendChild(scoreDisplayX);
         }
         playerXDialog.close();
         playerODialog.showModal();
@@ -238,10 +243,15 @@ const gameFlow = (function () {
 
     submitO.addEventListener("click", () => {
         const playerOName = document.getElementById("playerO");
+        let inputO = playerOName.value;
+        let scoreDisplayO = document.createElement("h3");
+
         if (playerOName.value == ''){
-            console.log("O");
+            scoreDisplayO.innerHTML = `Player O`;
+            playerODiv.appendChild(scoreDisplayO);
         } else {
-            console.log(playerOName.value);
+            scoreDisplayO.innerHTML = `${inputO} (Player O)`;
+            playerODiv.appendChild(scoreDisplayO);
         }
         playerODialog.close();
         gameDiv.style.visibility = "visible";
