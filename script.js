@@ -213,12 +213,40 @@ const gameFlow = (function () {
     const gameDiv = document.getElementById('game-container');
     gameDiv.style.visibility = "hidden";
 
-
+    const playerXDialog = document.getElementById('player-x');
+    const submitX = document.getElementById('submit-x');
+    const playerODialog = document.getElementById('player-o');
+    const submitO = document.getElementById('submit-o');
+   
     startBtn.addEventListener("click", () => {
+        // gameDiv.style.visibility = "visible";
+        // startBtn.style.visibility = "hidden";
+        // resetBtn.style.visibility = "visible";
+        playerXDialog.showModal();
+    });
+
+    submitX.addEventListener("click", () => {
+        const playerXName = document.getElementById("playerX");
+        if (playerXName.value == ''){
+            console.log("X");
+        } else {
+            console.log(playerXName.value);
+        }
+        playerXDialog.close();
+        playerODialog.showModal();
+    });
+
+    submitO.addEventListener("click", () => {
+        const playerOName = document.getElementById("playerO");
+        if (playerOName.value == ''){
+            console.log("O");
+        } else {
+            console.log(playerOName.value);
+        }
+        playerODialog.close();
         gameDiv.style.visibility = "visible";
         startBtn.style.visibility = "hidden";
         resetBtn.style.visibility = "visible";
-
     });
 
     resetBtn.addEventListener("click", () => {
