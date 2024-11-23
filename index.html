@@ -23,11 +23,16 @@
         <div class="file" id="9"></div>
     </div>
     <div id="score">
-        <div id="player-x-score"></div>
-        <div id="player-x-counter"> </div>
+        <div class="counterWrap">
+            <div id="player-x-score"></div>
+            <div id="player-x-counter"> </div>
+        </div>
 
-        <div id="player-o-score"> </div>
-        <div id="player-o-counter"> </div>
+        <div class="counterWrap">
+            <div id="player-o-score"> </div>
+            <div id="player-o-counter"> </div>
+        </div>
+        
     </div>
     <div id="btn-div">
         <button id="start-btn">Start</button>
@@ -36,13 +41,13 @@
     
     <dialog id="player-x" class="players">
         <label for="playerX">Player X, enter your name:</label>
-        <input type="text" id="playerX" name="playerX">
+        <input type="text" id="playerX" name="playerX" maxlength="10">
         <input type="submit" id="submit-x" value="Submit">
     </dialog>
 
     <dialog id="player-o" class="players">
         <label for="playerO">Player O, enter your name:</label>
-        <input type="text" id="playerO" name="playerO">
+        <input type="text" id="playerO" name="playerO" maxlength="10">
         <input type="submit" id="submit-o" value="Submit">
     </dialog>
     

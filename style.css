@@ -64,4 +64,13 @@ button {
 #score {
     color:#c7ddd1;
     font-size: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.counterWrap {
+    display: flex;
+    gap: 15px;
 }
