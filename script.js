@@ -48,6 +48,7 @@ const gameFlow = (function () {
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'X');
                 addMarker('X', id);
+                winCondition();
                 currentPlayer = 'O';
             } else {
                 alert("taken, try again");
@@ -58,6 +59,7 @@ const gameFlow = (function () {
             if (availableChecker(rowIndex, columnIndex) == true){
                 updateBoard(rowIndex, columnIndex, 'O');
                 addMarker('O', id);
+                winCondition();
                 currentPlayer = 'X';
             } else {
                 alert("taken, try again");
@@ -77,18 +79,51 @@ const gameFlow = (function () {
     function winCondition(){
         if (rowChecker() == 'X'){
             alert(`Player X wins!`);
+            playerXCounter++;
+            playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (rowChecker() == 'O'){
             alert(`Player O wins!`);
+            playerOCounter++;
+            playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (columnChecker() == 'X'){
             alert(`Player X wins!`);
+            playerXCounter++;
+            playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (columnChecker() == 'O'){
             alert(`Player O wins!`);
+            playerOCounter++;
+            playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (diagnolChecker() == 'X'){
             alert(`Player X wins!`);
+            playerXCounter++;
+            playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (diagnolChecker() == 'O'){
             alert(`Player O wins!`);
+            playerOCounter++;
+            playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         } else if (drawChecker() == false){
             alert(`It's a draw!`);
+
+            resetFrontEnd();
+            gameBoard.emptyBoardArray();
         }
     }
 
@@ -149,7 +184,7 @@ const gameFlow = (function () {
     function updateBoard(row, column, marker){
         gameBoard.board[row][column] = marker;
         gameBoard.render();
-        winCondition();
+        // winCondition();
     }
 
     function resetFrontEnd(){
@@ -159,9 +194,6 @@ const gameFlow = (function () {
     }
     };
 
-    function resetArray(){
-
-    };
     for (let i = 1; i < 10; i++) {
         const file = document.getElementById(i);
 
@@ -235,24 +267,33 @@ const gameFlow = (function () {
     const submitX = document.getElementById('submit-x');
     const playerODialog = document.getElementById('player-o');
     const submitO = document.getElementById('submit-o');
+    
+    let playerXCounter = 0;
+    let playerOCounter = 0;
 
     const playerXDiv = document.getElementById('player-x-score');
+    const playerXScore = document.getElementById('player-x-counter');
     const playerODiv = document.getElementById('player-o-score');
+    const playerOScore = document.getElementById('player-o-counter');
    
     startBtn.addEventListener("click", () => {
         playerXDialog.showModal();
     });
-
+    
     submitX.addEventListener("click", () => {
         const playerXName = document.getElementById("playerX");
         let inputX = playerXName.value;
         let scoreDisplayX = document.createElement("h3");
 
         if (playerXName.value == ''){
-            scoreDisplayX.innerHTML = `Player X`;
+            scoreDisplayX.innerHTML = `Player X: `;
+
+            playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
             playerXDiv.appendChild(scoreDisplayX);
         } else {
-            scoreDisplayX.innerHTML = `${inputX} (Player X)`;
+            scoreDisplayX.innerHTML = `${inputX} (Player X): `;
+
+            playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
             playerXDiv.appendChild(scoreDisplayX);
         }
         playerXDialog.close();
@@ -265,10 +306,14 @@ const gameFlow = (function () {
         let scoreDisplayO = document.createElement("h3");
 
         if (playerOName.value == ''){
-            scoreDisplayO.innerHTML = `Player O`;
+            scoreDisplayO.innerHTML = `Player O: `;
+
+            playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
             playerODiv.appendChild(scoreDisplayO);
         } else {
-            scoreDisplayO.innerHTML = `${inputO} (Player O)`;
+            scoreDisplayO.innerHTML = `${inputO} (Player O): `;
+
+            playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
             playerODiv.appendChild(scoreDisplayO);
         }
         playerODialog.close();

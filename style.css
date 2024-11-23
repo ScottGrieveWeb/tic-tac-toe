@@ -52,6 +52,10 @@ button {
     border-radius: 5px;
 }
 
+#reset-btn {
+    font-size: 30px;
+}
+
 #btn-div {
     display: flex;
     flex-direction: column
@@ -59,5 +63,5 @@ button {
 
 #score {
     color:#c7ddd1;
-    font-size: 45px;
+    font-size: 40px;
 }
