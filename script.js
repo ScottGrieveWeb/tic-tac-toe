@@ -3,6 +3,14 @@ const gameBoard = (function () {
     const columns = 3;
     const board = [];
 
+    function emptyBoardArray(){
+        for (let i = 0; i < rows; i++) {
+            board[i] = [];
+            for (let j = 0; j < columns; j++) {
+                board[i].push(_Cell());
+            }
+        }
+    }
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for (let j = 0; j < columns; j++) {
@@ -22,7 +30,8 @@ const gameBoard = (function () {
     
     return {
         board,
-        render
+        render,
+        emptyBoardArray
      };
 })();
 
@@ -148,6 +157,10 @@ const gameFlow = (function () {
             const file = document.getElementById(i);
             file.innerHTML = '';
     }
+    };
+
+    function resetArray(){
+
     };
     for (let i = 1; i < 10; i++) {
         const file = document.getElementById(i);
