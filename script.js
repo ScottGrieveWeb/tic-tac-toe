@@ -143,7 +143,12 @@ const gameFlow = (function () {
         winCondition();
     }
 
-
+    function resetFrontEnd(){
+        for (let i = 1; i < 10; i++) {
+            const file = document.getElementById(i);
+            file.innerHTML = '';
+    }
+    };
     for (let i = 1; i < 10; i++) {
         const file = document.getElementById(i);
 
