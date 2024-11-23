@@ -206,13 +206,23 @@ const gameFlow = (function () {
     }
 
     const startBtn = document.getElementById('start-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    resetBtn.style.visibility = "hidden";
+
     const boardDialog = document.getElementById('gameDialog');
     const gameDiv = document.getElementById('game-container');
     gameDiv.style.visibility = "hidden";
 
+
     startBtn.addEventListener("click", () => {
         gameDiv.style.visibility = "visible";
+        startBtn.style.visibility = "hidden";
+        resetBtn.style.visibility = "visible";
 
+    });
+
+    resetBtn.addEventListener("click", () => {
+        window.location.reload();
     });
 
     return {

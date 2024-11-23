@@ -43,11 +43,16 @@ button {
     cursor: pointer;
 }
 
-#start-btn {
+button {
     background-color: #c7ddd1;
     font-size: 50px;
     color: #181F1C;
     padding: 20px 30px;
     margin: 15px;
     border-radius: 5px;
+}
+
+#btn-div {
+    display: flex;
+    flex-direction: column
 }
