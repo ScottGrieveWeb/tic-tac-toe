@@ -11,6 +11,8 @@ const gameBoard = (function () {
             }
         }
     }
+
+    // initialises array on load
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for (let j = 0; j < columns; j++) {
@@ -68,6 +70,7 @@ const gameFlow = (function () {
         }
     }
 
+    // takes an array index and checks if it's currently empty
     function availableChecker(row, column) {
         if (gameBoard.board[row][column] == ''){
             return true;
@@ -76,6 +79,7 @@ const gameFlow = (function () {
         }
     }
 
+    // main win condition function that gets called after each user input
     function winCondition(){
         if (rowChecker() == 'X'){
             alert(`Player X wins!`);
@@ -127,6 +131,7 @@ const gameFlow = (function () {
         }
     }
 
+    // checkes each row on the board to see if a player has won
     function rowChecker(){
         if (gameBoard.board[0][0] == 'X' && gameBoard.board[0][1] == 'X' && gameBoard.board[0][2] == 'X'){
             return 'X';
@@ -143,6 +148,7 @@ const gameFlow = (function () {
         }
     }
 
+    // checkes each column on the board to see if a player has won
     function columnChecker(){
         if (gameBoard.board[0][0] == 'X' && gameBoard.board[1][0] == 'X' && gameBoard.board[2][0] == 'X'){
             return 'X';
@@ -159,6 +165,7 @@ const gameFlow = (function () {
         }
     }
 
+    // checkes the two diagnol on the board to see if a player has won
     function diagnolChecker(){
         if (gameBoard.board[0][0] == 'X' && gameBoard.board[1][1] == 'X' && gameBoard.board[2][2] == 'X'){
             return 'X';
@@ -171,6 +178,8 @@ const gameFlow = (function () {
         } 
     }
 
+    // called after the above row/column/diagnol checkers in the winCon func
+    // if all files are filled, this returns false and winCon declares a draw
     function drawChecker(){
         for (let i = 0; i < gameBoard.board.length; i++) {
             for (let j = 0; j < gameBoard.board[i].length; j++) {
@@ -181,10 +190,11 @@ const gameFlow = (function () {
           }
           return false;
     }
+
+    // updates the board array
     function updateBoard(row, column, marker){
         gameBoard.board[row][column] = marker;
         gameBoard.render();
-        // winCondition();
     }
 
     function resetFrontEnd(){
@@ -193,6 +203,7 @@ const gameFlow = (function () {
             file.innerHTML = '';
     }
     };
+
 
     for (let i = 1; i < 10; i++) {
         const file = document.getElementById(i);
@@ -203,12 +214,14 @@ const gameFlow = (function () {
         });
     }
 
+    // function to add the marker to the front end board
     function addMarker(player, id){
         const currentFile = document.getElementById(id);
         let node = document.createTextNode(`${player}`);
         currentFile.appendChild(node);
     }
     
+    // correlates the file ID to the respective board array index
     function idChecker(id) {
         let row;
         let column;
@@ -255,6 +268,7 @@ const gameFlow = (function () {
         return index;
     }
 
+    //DOM manipulation
     const startBtn = document.getElementById('start-btn');
     const resetBtn = document.getElementById('reset-btn');
     resetBtn.style.visibility = "hidden";
