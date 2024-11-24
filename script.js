@@ -82,45 +82,51 @@ const gameFlow = (function () {
     // main win condition function that gets called after each user input
     function winCondition(){
         if (rowChecker() == 'X'){
-            alert(`Player X wins!`);
             playerXCounter++;
             playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
+            alert(`Player X wins!`);
 
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (rowChecker() == 'O'){
-            alert(`Player O wins!`);
             playerOCounter++;
             playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+            alert(`Player O wins!`);
 
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (columnChecker() == 'X'){
-            alert(`Player X wins!`);
             playerXCounter++;
             playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
-
+            alert(`Player X wins!`);
+            
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (columnChecker() == 'O'){
-            alert(`Player O wins!`);
             playerOCounter++;
             playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+            alert(`Player O wins!`);
 
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (diagnolChecker() == 'X'){
-            alert(`Player X wins!`);
             playerXCounter++;
             playerXScore.innerHTML = `<h3>${playerXCounter}</h3>`;
+            alert(`Player X wins!`);
 
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (diagnolChecker() == 'O'){
-            alert(`Player O wins!`);
             playerOCounter++;
             playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
+            alert(`Player O wins!`);
 
+            firstToThree()
             resetFrontEnd();
             gameBoard.emptyBoardArray();
         } else if (drawChecker() == false){
@@ -156,7 +162,7 @@ const gameFlow = (function () {
             return 'X';
         } else if (gameBoard.board[0][2] == 'X' && gameBoard.board[1][2] == 'X' && gameBoard.board[2][2] == 'X'){
             return 'X';
-        } else if (gameBoard.board[0][0] == 'O' && gameBoard.board[2][0] == 'O' && gameBoard.board[2][0] == 'O'){
+        } else if (gameBoard.board[0][0] == 'O' && gameBoard.board[1][0] == 'O' && gameBoard.board[2][0] == 'O'){
             return 'O';
         } else if (gameBoard.board[0][1] == 'O' && gameBoard.board[1][1] == 'O' && gameBoard.board[2][1] == 'O'){
             return 'O';
@@ -189,6 +195,17 @@ const gameFlow = (function () {
             }
           }
           return false;
+    }
+
+    // checks if either player has won three times
+    function firstToThree(){
+        if (playerXCounter == 3){
+            alert("Game Over! Player X has won 3 times!");
+            window.location.reload();
+        } else if (playerOCounter === 3) {
+            alert("Game Over! Player O has won 3 times!");
+            window.location.reload();
+        }
     }
 
     // updates the board array
@@ -341,8 +358,6 @@ const gameFlow = (function () {
     });
 
     return {
-        currentPlayer,
-        userInput
     }
 })();
 
