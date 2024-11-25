@@ -74,3 +74,20 @@ button {
     display: flex;
     gap: 15px;
 }
+
+@media only screen and (max-width: 493px) {
+    #game-container {
+        height: 180px;
+        margin-top: 50px;
+        margin-bottom: 200px;
+    }
+
+    #score {
+        font-size: 25px;
+    }
+
+    #reset-btn {
+        margin-top: -100px;
+    }
+
+}
