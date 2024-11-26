@@ -52,6 +52,7 @@ const gameFlow = (function () {
                 addMarker('X', id);
                 winCondition();
                 currentPlayer = 'O';
+                highlightPlayer('O');
             } else {
                 alert("taken, try again");
                 userInput();
@@ -63,6 +64,7 @@ const gameFlow = (function () {
                 addMarker('O', id);
                 winCondition();
                 currentPlayer = 'X';
+                highlightPlayer('X');
             } else {
                 alert("taken, try again");
                 userInput();
@@ -347,6 +349,7 @@ const gameFlow = (function () {
             playerOScore.innerHTML = `<h3>${playerOCounter}</h3>`;
             playerODiv.appendChild(scoreDisplayO);
         }
+        highlightPlayer('X');
         playerODialog.close();
         gameDiv.style.visibility = "visible";
         startBtn.style.visibility = "hidden";
@@ -356,6 +359,16 @@ const gameFlow = (function () {
     resetBtn.addEventListener("click", () => {
         window.location.reload();
     });
+
+    function highlightPlayer(marker){
+        if (marker == 'X'){
+            playerODiv.style.textDecoration = "none";
+            playerXDiv.style.textDecoration = "underline";
+        } else if (marker == 'O'){
+            playerXDiv.style.textDecoration = "none";
+            playerODiv.style.textDecoration = "underline";
+        }
+    }
 
     return {
     }
